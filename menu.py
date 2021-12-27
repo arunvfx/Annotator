@@ -1,7 +1,6 @@
 
 import nuke
 from main import *
-# from nukescripts import panels
 
 
 menu = nuke.menu('Nuke').addMenu('thEdge')

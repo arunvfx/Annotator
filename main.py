@@ -574,10 +574,3 @@ def popup_paint(img):
 def main_annotator():
     main_annotator.ann = GrabScreen()
     main_annotator.ann.show()
-
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    ann = GrabScreen()
-    ann.show()
-    sys.exit(app.exec_())
