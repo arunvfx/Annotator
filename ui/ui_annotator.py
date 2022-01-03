@@ -36,6 +36,12 @@ class AnnotatorUi(object):
 
         self.horizontalLayout.addWidget(self.btn_save)
 
+        self.btn_copy_clipboard = QPushButton(self.frame_header)
+        self.btn_copy_clipboard.setObjectName("btn_copy_clipboard")
+        self.btn_copy_clipboard.setMaximumSize(QSize(30, 30))
+
+        self.horizontalLayout.addWidget(self.btn_copy_clipboard)
+
         self.frame_dummy1 = QFrame(self.frame_header)
         self.frame_dummy1.setObjectName("frame_dummy1")
         self.frame_dummy1.setMinimumSize(QSize(250, 0))
@@ -227,6 +233,7 @@ class AnnotatorUi(object):
         self.setWindowTitle("Annotator")
         self.btn_save.setFocusPolicy(Qt.NoFocus)
         self.btn_open.setFocusPolicy(Qt.NoFocus)
+        self.btn_copy_clipboard.setFocusPolicy(Qt.NoFocus)
         self.btn_erase.setFocusPolicy(Qt.NoFocus)
         self.btn_line.setFocusPolicy(Qt.NoFocus)
         self.btn_ellipse.setFocusPolicy(Qt.NoFocus)
@@ -254,6 +261,7 @@ class AnnotatorUi(object):
         src_path = os.path.dirname(os.path.dirname(__file__))
         self.btn_open.setIcon(QIcon('{}/icons/open_lite.png'.format(src_path)))
         self.btn_save.setIcon(QIcon('{}/icons/save_lite.png'.format(src_path)))
+        self.btn_copy_clipboard.setIcon(QIcon('{}/icons/clipboard_lite.png'.format(src_path)))
         self.btn_undo.setIcon(QIcon('{}/icons/undo_lite.png'.format(src_path)))
         self.btn_redo.setIcon(QIcon('{}/icons/redo_lite.png'.format(src_path)))
         self.btn_erase.setIcon(QIcon('{}/icons/delete_lite.png'.format(src_path)))
@@ -272,6 +280,7 @@ class AnnotatorUi(object):
 
         self.btn_open.setIconSize(QSize(20, 20))
         self.btn_save.setIconSize(QSize(20, 20))
+        self.btn_copy_clipboard.setIconSize(QSize(20, 20))
         self.btn_undo.setIconSize(QSize(20, 20))
         self.btn_redo.setIconSize(QSize(20, 20))
         self.btn_erase.setIconSize(QSize(20, 20))
@@ -293,7 +302,7 @@ class AnnotatorUi(object):
 
         self.combo_font_size.hide()
         self.combo_font.hide()
-        # self.btn_erase.setCheckable(True)
+        self.btn_copy_clipboard.hide()
         self.btn_text.setCheckable(True)
         self.btn_line.setCheckable(True)
         self.btn_rectangle.setCheckable(True)
@@ -315,6 +324,7 @@ class AnnotatorUi(object):
         self.btn_erase.setToolTip('Clear All')
         self.btn_open.setToolTip('Open')
         self.btn_save.setToolTip('Save')
+        self.btn_copy_clipboard.setToolTip('Copy to Clipboard')
         self.btn_color_palette.setToolTip('Color Palette')
         self.btn_text.setToolTip('Text')
 

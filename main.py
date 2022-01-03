@@ -9,6 +9,8 @@ from PySide2.QtGui import *
 
 from ui.ui_annotator import AnnotatorUi
 
+import packages.pyperclip as pyperclip
+
 
 class PaintWidget(QWidget):
 
@@ -320,7 +322,20 @@ class PaintWidget(QWidget):
         save image file.
         :param str file: image file to be saved.
         """
+        self.clipboard_image = file
         self.image.save(file, 'jpg', 100)
+        self.copy_to_clipboard()
+
+    def copy_to_clipboard(self):
+        """
+        copy image path to clipboard.
+        :return: None.
+        """
+        if self.clipboard_image:
+            if sys.platform == 'win32':
+                pyperclip.copy(self.clipboard_image.replace('/', '\\'))
+            else:
+                pyperclip.copy(self.image_file)
 
 
 # -------------------------------------- PAINT WIDGET -----------------------------------------
@@ -389,6 +404,8 @@ class Annotator(AnnotatorUi, QWidget):
         self.btn_color_palette.clicked.connect(self.color_picker)
         self.combo_font.currentIndexChanged.connect(self.update_font)
         self.combo_font_size.currentIndexChanged.connect(self.update_font)
+
+        self.btn_copy_clipboard.clicked.connect(self.paint_widget.copy_to_clipboard)
 
     def color_picker(self):
         """
@@ -485,6 +502,7 @@ class Annotator(AnnotatorUi, QWidget):
         file = self.save_image_browser()
         if file:
             self.paint_widget.save_file('{}.jpg'.format(os.path.splitext(file[0])[0]))
+            self.btn_copy_clipboard.show()
 
     def save_image_browser(self):
         """
