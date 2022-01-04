@@ -6,4 +6,6 @@ Annotator tool helps to do annotation inside Nuke.
 # Updates
 Included Copy to Clipboard (once image saved, image path will be copied to clipboard.)
 
+# Preview
+
 ![image not found](https://github.com/arunvfx/Annotator/blob/master/preview.PNG?raw=true)
