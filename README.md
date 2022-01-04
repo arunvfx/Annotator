@@ -1,6 +1,6 @@
 # Annotator
 
-Annotator tool helps to do annotation inside Nuke.
+Annotator tool for nuke, helps to do annotation inside Nuke.
 <br><br>Tested Platform : Windows 10
 
 # Updates
