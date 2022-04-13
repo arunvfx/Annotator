@@ -280,6 +280,9 @@ class PaintWidget(QWidget):
         if self.strokes:
             stroke = self.strokes.pop()
             self.backup_strokes.append(stroke)
+            if self.strokes:
+                stroke = self.strokes.pop()
+                self.backup_strokes.append(stroke)
             self.process_painting()
             self.update()
 
@@ -290,6 +293,9 @@ class PaintWidget(QWidget):
         if self.backup_strokes:
             stroke = self.backup_strokes.pop()
             self.strokes.append(stroke)
+            if self.backup_strokes:
+                stroke = self.backup_strokes.pop()
+                self.strokes.append(stroke)
             self.process_painting()
             self.update()
 
